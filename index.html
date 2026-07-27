@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ahmed Tamer Yahya - High school student portfolio and CV focused on AI tools, programming, automation, design, and content creation." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Ahmed Tamer Yahya | CV & Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(15, 28, 48, 0.82);
+      --panel-strong: #101e32;
+      --text: #f7fbff;
+      --muted: #a9b7cb;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #54d6ff;
+      --accent-2: #7c8cff;
+      --success: #8bf0c8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(84, 214, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 90% 20%, rgba(124, 140, 255, 0.18), transparent 35%),
+        linear-gradient(145deg, #050b14, var(--bg) 58%, #091728);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(calc(100% - 36px), var(--max));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 30;
+      margin-top: 14px;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(7, 17, 31, 0.76);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 34px rgba(0,0,0,.18);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      color: #06111e;
+      background: linear-gradient(135deg, var(--accent), var(--success));
+      box-shadow: 0 8px 24px rgba(84, 214, 255, 0.25);
+      font-size: .86rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 88px 0 52px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 8px 13px;
+      border: 1px solid rgba(139, 240, 200, 0.24);
+      border-radius: 999px;
+      color: var(--success);
+      background: rgba(139, 240, 200, 0.07);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    h1 {
+      max-width: 820px;
+      font-size: clamp(3rem, 8vw, 6.6rem);
+      line-height: .94;
+      letter-spacing: -0.07em;
+      text-wrap: balance;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(90deg, #ffffff 10%, var(--accent) 55%, #aeb6ff 95%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .22s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(84, 214, 255, .4);
+      background: rgba(84, 214, 255, .09);
+    }
+
+    .button.primary {
+      color: #06111e;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--success));
+      box-shadow: 0 12px 28px rgba(84, 214, 255, .18);
+    }
+
+    .profile-card {
+      position: relative;
+      min-height: 380px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(165deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before,
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .profile-card::before {
+      width: 220px;
+      height: 220px;
+      top: -70px;
+      right: -60px;
+      background: rgba(84, 214, 255, .18);
+    }
+
+    .profile-card::after {
+      width: 180px;
+      height: 180px;
+      bottom: -60px;
+      left: -40px;
+      background: rgba(124, 140, 255, .18);
+    }
+
+    .avatar {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 54px;
+      color: #06111e;
+      background: linear-gradient(145deg, #f5fbff, var(--accent));
+      box-shadow: inset 0 0 0 10px rgba(255,255,255,.2), 0 22px 48px rgba(0,0,0,.28);
+      font-size: 4.3rem;
+      font-weight: 900;
+      letter-spacing: -.08em;
+      transform: rotate(-3deg);
+    }
+
+    .quick-facts {
+      position: absolute;
+      z-index: 3;
+      right: 22px;
+      bottom: 20px;
+      left: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .fact {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(7, 17, 31, .76);
+      backdrop-filter: blur(12px);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: .85rem;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    section {
+      padding: 36px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading span {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -.04em;
+    }
+
+    .section-note {
+      max-width: 530px;
+      color: var(--muted);
+      font-size: .98rem;
+      text-align: right;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 14px 38px rgba(0,0,0,.15);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .75;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.16rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      display: grid;
+      gap: 9px;
+      padding-left: 18px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border: 1px solid rgba(84, 214, 255, .18);
+      border-radius: 999px;
+      color: #dff8ff;
+      background: rgba(84, 214, 255, .07);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 15px;
+      width: 2px;
+      background: linear-gradient(var(--accent), rgba(124, 140, 255, .15));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 16px;
+      height: 16px;
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 2px rgba(84, 214, 255, .3);
+    }
+
+    .timeline-meta {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: .85rem;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 30px;
+      border: 1px solid rgba(84, 214, 255, .2);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(84, 214, 255, .12), rgba(124, 140, 255, .1)),
+        var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .print-only {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        min-height: 330px;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .section-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        padding: 12px 14px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 17vw, 5rem);
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .profile-card {
+        min-height: 310px;
+      }
+
+      .avatar {
+        width: 160px;
+        height: 160px;
+        border-radius: 44px;
+        font-size: 3.6rem;
+      }
+
+      .quick-facts {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media print {
+      :root {
+        --text: #111827;
+        --muted: #475569;
+        --line: #dbe3ee;
+      }
+
+      body {
+        color: var(--text);
+        background: white;
+      }
+
+      body::before,
+      .nav,
+      .hero-actions,
+      .profile-card,
+      footer {
+        display: none !important;
+      }
+
+      .hero {
+        padding: 0 0 22px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .contact-panel {
+        display: block;
+      }
+
+      h1,
+      .gradient-text {
+        color: #111827;
+        background: none;
+        -webkit-text-fill-color: initial;
+        font-size: 42px;
+      }
+
+      section {
+        padding: 12px 0;
+      }
+
+      .card,
+      .contact-panel {
+        margin-bottom: 12px;
+        break-inside: avoid;
+        color: #111827;
+        background: white;
+        box-shadow: none;
+      }
+
+      .print-only {
+        display: block;
+        margin-top: 10px;
+        color: #475569;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav container" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Ahmed Tamer Yahya home">
+        <span class="brand-mark">AT</span>
+        <span>Ahmed Tamer Yahya</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Open to internship opportunities</div>
+          <h1><span class="gradient-text">Ahmed Tamer Yahya</span></h1>
+          <p class="hero-copy">
+            High school student exploring artificial intelligence, automation,
+            programming, digital design, and content creation. I am looking for
+            an internship where I can learn, support a professional team, and turn
+            creative ideas into useful digital projects.
+          </p>
+          <p class="print-only">Giza, Egypt · 01143535881</p>
+          <div class="hero-actions">
+            <a class="button primary" href="tel:+201143535881">Call Ahmed</a>
+            <a class="button" href="#contact">View contact details</a>
+            <button class="button" type="button" onclick="window.print()">Print / Save as PDF</button>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Ahmed profile summary">
+          <div class="avatar" aria-hidden="true">AT</div>
+          <div class="quick-facts">
+            <div class="fact">
+              <strong>Location</strong>
+              <span>Giza, Egypt</span>
+            </div>
+            <div class="fact">
+              <strong>Level</strong>
+              <span>High school student</span>
+            </div>
+            <div class="fact">
+              <strong>Goal</strong>
+              <span>Internship experience</span>
+            </div>
+            <div class="fact">
+              <strong>Focus</strong>
+              <span>Digital projects</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>01 · Profile</span>
+            <h2>Professional objective</h2>
+          </div>
+          <p class="section-note">
+            A clear summary designed for internship applications and beginner freelance opportunities.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            I am a motivated and creative high school student seeking an internship
+            to gain practical experience and strengthen my professional skills. I am
+            especially interested in AI tools, automation, programming, digital design,
+            and content creation. I learn quickly, follow instructions carefully, and
+            enjoy solving problems through technology and creative thinking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>02 · Capabilities</span>
+            <h2>Skills and strengths</h2>
+          </div>
+          <p class="section-note">
+            A mix of technical, creative, and personal skills suitable for entry-level internships.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>AI & Automation</h3>
+            <p>Using modern AI tools to research, plan, create content, and develop automation ideas.</p>
+            <div class="tag-list">
+              <span class="tag">AI tools</span>
+              <span class="tag">Prompt writing</span>
+              <span class="tag">Workflow ideas</span>
+              <span class="tag">Research</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Programming & Coding</h3>
+            <p>Building beginner digital projects while developing logical thinking and problem-solving skills.</p>
+            <div class="tag-list">
+              <span class="tag">Coding basics</span>
+              <span class="tag">Web projects</span>
+              <span class="tag">Testing</span>
+              <span class="tag">Problem-solving</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Design & Content</h3>
+            <p>Creating visual concepts, presentations, social content, and simple branding materials.</p>
+            <div class="tag-list">
+              <span class="tag">Content creation</span>
+              <span class="tag">Presentations</span>
+              <span class="tag">Brand ideas</span>
+              <span class="tag">Visual planning</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <h3>Personal strengths</h3>
+          <div class="tag-list">
+            <span class="tag">Communication</span>
+            <span class="tag">Teamwork</span>
+            <span class="tag">Creativity</span>
+            <span class="tag">Responsibility</span>
+            <span class="tag">Time management</span>
+            <span class="tag">Adaptability</span>
+            <span class="tag">Attention to detail</span>
+            <span class="tag">Willingness to learn</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>03 · Experience</span>
+            <h2>Project experience</h2>
+          </div>
+          <p class="section-note">
+            Independent student work showing initiative, creativity, and an interest in real digital projects.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item card">
+            <div class="timeline-meta">Independent projects · Present</div>
+            <h3>Student Freelancer & Digital Project Creator</h3>
+            <ul>
+              <li>Worked on personal and freelance-style projects involving AI, programming, design, and content creation.</li>
+              <li>Created concepts for websites, applications, brands, presentations, and social media campaigns.</li>
+              <li>Used AI tools to research topics, prepare content, and improve project workflows.</li>
+              <li>Improved work based on feedback and organized files for online presentation.</li>
+              <li>Managed different tasks while following project requirements and deadlines.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>04 · Focus Areas</span>
+            <h2>Selected project interests</h2>
+          </div>
+          <p class="section-note">
+            Areas where Ahmed is building experience and looking to grow through an internship.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>AI Solutions</h3>
+            <p>Exploring ways AI and automation can simplify business tasks and support customer experiences.</p>
+          </article>
+          <article class="card">
+            <h3>Digital Development</h3>
+            <p>Practising beginner coding and web development through useful digital project ideas.</p>
+          </article>
+          <article class="card">
+            <h3>Creative Media</h3>
+            <p>Designing promotional posts, visual concepts, presentations, and simple brand directions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>05 · Education</span>
+            <h2>Academic background</h2>
+          </div>
+          <p class="section-note">
+            School details can be added later when Ahmed is ready to include them publicly.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="timeline-meta">Current</div>
+            <h3>High School Student</h3>
+            <p>Giza, Egypt</p>
+          </article>
+          <article class="card">
+            <h3>Relevant interests</h3>
+            <div class="tag-list">
+              <span class="tag">Information Technology</span>
+              <span class="tag">Computer Science</span>
+              <span class="tag">Artificial Intelligence</span>
+              <span class="tag">Design</span>
+              <span class="tag">Business</span>
+              <span class="tag">English</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <span class="eyebrow" style="margin-bottom: 12px;">Available for internship opportunities</span>
+            <h2>Let’s connect</h2>
+            <p>Ahmed is based in Giza, Egypt and is interested in learning-focused internship opportunities.</p>
+          </div>
+          <a class="button primary" href="tel:+201143535881">01143535881</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Ahmed Tamer Yahya · CV website ready for GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
